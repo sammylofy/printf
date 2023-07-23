@@ -10,8 +10,6 @@ static int printString(char *str);
  */
 int _printf(const char *format, ...)
 {
-	if (format == NULL)
-		return (0);
 
 	int noPrintedChar = 0;
 	int i = 0;
@@ -20,6 +18,9 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
+
+	if (format == NULL)
+		return (0);
 
 	while (format[i] != '\0')
 	{
@@ -85,10 +86,17 @@ static int printString(char *str)
 {
 	int noOfCharPrinted = 0;
 
-	do {
-		noOfCharPrinted += printChar(*str);
-		str++;
-	} while (*str);
+	if (str == NULL)
+	{
+		return (0);
+	}
+	else
+	{
+		do {
+			noOfCharPrinted += printChar(*str);
+			str++;
+		} while (*str);
+	}
 
 	return (noOfCharPrinted);
 }
