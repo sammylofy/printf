@@ -48,6 +48,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			noPrintedChar += printChar('%');
 			noPrintedChar += printChar(format[i]);
 		}
 		i++;
