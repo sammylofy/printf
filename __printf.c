@@ -4,9 +4,10 @@ static int printChar(char item);
 static int printString(char *str);
 
 /**
- * _printf - Function to print values according to specifiers
- * @format: the format received
- * Return: The number of character printed excluding the null byte
+ * _printf - a custom implementation of printf
+ * @format: input string
+ *
+ * Return: number of characters to be printed
  */
 int _printf(const char *format, ...)
 {
@@ -65,7 +66,7 @@ int _printf(const char *format, ...)
 }
 
 /**
- * printChar - helper function to print a char
+ * printChar - sub-function to print characters
  * @item : item or character to print
  * Return: 1 else 0
  */
@@ -77,8 +78,8 @@ static int printChar(char item)
 
 
 /**
- * printString - Helper function to print string
- * @str : String to be printed
+ * printString - sub-function to print string
+ * @str : string to be printed
  * Return: the number of char printed
  */
 
