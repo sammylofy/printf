@@ -1,7 +1,7 @@
 #include "main.h"
 
 static int printChar(char item);
-static int printString(char* str);
+static int printString(char *str);
 
 /**
  * _printf - Function to print values according to specifiers
@@ -10,6 +10,9 @@ static int printString(char* str);
  */
 int _printf(const char *format, ...)
 {
+	if (format == NULL)
+		return (0);
+
 	int noPrintedChar = 0;
 	int i = 0;
 	char s;
@@ -25,16 +28,19 @@ int _printf(const char *format, ...)
 		if (s == '%')
 		{
 			++i;
+
 			s = format[i];
 
 			if (s == 'c')
 			{
 				char ch = va_arg(args, int);
+
 				noPrintedChar += printChar(ch);
 			}
 			else if (s == 's')
 			{
 				char *str = va_arg(args, char*);
+
 				noPrintedChar += printString(str);
 			}
 			else if (s == '%')
@@ -75,7 +81,7 @@ static int printChar(char item)
  * Return: the number of char printed
  */
 
-static int printString(char* str)
+static int printString(char *str)
 {
 	int noOfCharPrinted = 0;
 
