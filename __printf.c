@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 
 		if (s == '%')
 		{
-			i++;
+			++i;
 			s = format[i];
 
 			if (s == 'c')
@@ -43,12 +43,12 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
+				noPrintedChar += printChar('%');
 				noPrintedChar += printChar(format[i]);
 			}
 		}
 		else
 		{
-			noPrintedChar += printChar('%');
 			noPrintedChar += printChar(format[i]);
 		}
 		i++;
