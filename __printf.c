@@ -2,6 +2,7 @@
 
 static int printChar(char item);
 static int printString(char *str);
+static int printIntValue(int value);
 
 /**
  * _printf - a custom implementation of printf
@@ -23,7 +24,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	while (format[i] != '\0')
+	while (*format && format[i] != '\0')
 	{
 		s = format[i];
 
@@ -44,6 +45,12 @@ int _printf(const char *format, ...)
 				char *str = va_arg(args, char*);
 
 				noPrintedChar += printString(str);
+			}
+			else if (s == 'd')
+			{
+				int num = va_arg(args, int);
+
+				noPrintedChar += printIntValue(num);
 			}
 			else if (s == '%')
 			{
@@ -100,4 +107,27 @@ static int printString(char *str)
 	}
 
 	return (noOfCharPrinted);
+}
+/**
+ * printIntValue - Function that handles ptinting int
+ * @value: The integer to be printed
+ * Return: The number of digits printed
+ */
+static int printIntValue(int value)
+{
+	int digits = 0;
+
+	if (value < 0)
+	{
+		printChar('-');
+		value = -value;
+	}
+	else if (value < 10)
+	{
+		printChar('0' + value);
+		return (1);
+	}
+	digits = printIntValue(value / 10);
+	printChar('0' + value % 10);
+	return (digits + 1);
 }
