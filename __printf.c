@@ -6,10 +6,10 @@ static int printIntValue(int value);
 int printBinary(unsigned int num);
 
 /**
- * _printf - a custom implementation of printf
- * @format: input string
+ * _printf - A custom implementation of printf
+ * @format: Input string
  *
- * Return: number of characters to be printed
+ * Return: Number of characters to be printed
  */
 int _printf(const char *format, ...)
 {
