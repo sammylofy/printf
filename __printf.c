@@ -35,38 +35,49 @@ int _printf(const char *format, ...)
 
 			s = format[i];
 
-			if (s == 'c')
+			switch (s)
 			{
-				char ch = va_arg(args, int);
+				case 'c':
+				{
+					char ch = va_arg(args, int);
 
-				noPrintedChar += printChar(ch);
-			}
-			else if (s == 's')
-			{
-				char *str = va_arg(args, char*);
+					noPrintedChar += printChar(ch);
+					break;
+				}
+				case 's':
+				{
+					char *str = va_arg(args, char*);
 
-				noPrintedChar += printString(str);
-			}
-			else if (s == 'd' || s == 'i')
-			{
-				int num = va_arg(args, int);
+					noPrintedChar += printString(str);
+					break;
+				}
+				case 'd':
+				case 'i':
 
-				noPrintedChar += printIntValue(num);
-			}
-			else if (s == 'b')
-			{
-				unsigned int val = va_arg(args, unsigned int);
+				{
+					int num = va_arg(args, int);
 
-				noPrintedChar += printBinary(val);
-			}
-			else if (s == '%')
-			{
-				noPrintedChar += printChar('%');
-			}
-			else
-			{
-				noPrintedChar += printChar('%');
-				noPrintedChar += printChar(format[i]);
+					noPrintedChar += printIntValue(num);
+					break;
+				}
+				case 'b':
+				{
+					unsigned int val = va_arg(args, unsigned int);
+
+					noPrintedChar += printBinary(val);
+					break;
+				}
+				case '%':
+				{
+					noPrintedChar += printChar('%');
+					break;
+				}
+				default:
+				{
+					noPrintedChar += printChar('%');
+					noPrintedChar += printChar(format[i]);
+					break;
+				}
 			}
 		}
 		else
