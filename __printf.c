@@ -134,22 +134,38 @@ static int printString(char *str)
  */
 static int printIntValue(int value)
 {
-	int digits = 0;
+	int count = 0, i = 0, temp = 0, digits = 0, pow = 0;
 
 	if (value < 0)
 	{
-		printChar('-');
+		char c = '-';
+
+		write(1, &c, 1);
 		value = -value;
-		digits++;
+		count++;
 	}
-	if (value < 10)
+	temp = value;
+	do
 	{
-		printChar('0' + value);
-		return (1);
+		digits++;
+		temp = temp / 10;
+	} while (temp != 0);
+
+	while (digits > 0)
+	{
+		char c;
+
+		pow = 1;
+		for (i = 1; i < digits; i++)
+			pow *= 10;
+		count++;
+		c = '0' + (int)(value / pow);
+		write(1, &c, 1);
+		value = value - (value / pow) * pow;
+		digits--;
+	
 	}
-	digits = printIntValue(value / 10);
-	printChar('0' + value % 10);
-	return (digits);
+	return (count);
 }
 /**
  * printBinary - function that handles binary conversion
