@@ -105,10 +105,11 @@ static int printString(char *str)
 	}
 	else
 	{
-		do {
+		while (*str)
+		{
 			noOfCharPrinted += printChar(*str);
 			str++;
-		} while (*str);
+		}
 	}
 
 	return (noOfCharPrinted);
