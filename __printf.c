@@ -103,9 +103,9 @@ static int printChar(char item)
 
 
 /**
- * printString - sub-function to print string
- * @str : string to be printed
- * Return: the number of char printed
+ * printString - Sub-function to print string
+ * @str : String to be printed
+ * Return: The number of char printed
  */
 
 static int printString(char *str)
