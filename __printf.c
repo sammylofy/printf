@@ -52,6 +52,11 @@ int _printf(const char *format, ...)
 
 				noPrintedChar += printIntValue(num);
 			}
+			else if (s == 'i')
+			{
+				int val = va_arg(args, int);
+				noPrintedChar += printIntValue(val);
+			}
 			else if (s == '%')
 			{
 				noPrintedChar += printChar('%');
