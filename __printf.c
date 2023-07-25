@@ -91,9 +91,9 @@ int _printf(const char *format, ...)
 }
 
 /**
- * printChar - sub-function to print characters
- * @item : item or character to print
- * Return: 1 else 0
+ * printChar - Sub-function to print characters
+ * @item : Item or character to print
+ * Return: 1 else then 0
  */
 
 static int printChar(char item)
