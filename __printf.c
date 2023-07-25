@@ -152,9 +152,9 @@ static int printIntValue(int value)
 	return (digits);
 }
 /**
- * printBinary - Function that handles binary conversion
+ * printBinary - function that handles binary conversion
  * @num: The integer to be printed
- * Return: The number of digits printed
+ * Return: Return the number of digits printed
  */
 
 int printBinary(unsigned int num)
