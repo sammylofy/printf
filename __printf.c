@@ -127,7 +127,7 @@ static int printIntValue(int value)
 		printChar('-');
 		value = -value;
 	}
-	else if (value < 10)
+	if (value < 10)
 	{
 		printChar('0' + value);
 		return (1);
