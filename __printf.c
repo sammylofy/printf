@@ -91,7 +91,7 @@ int _printf(const char *format, ...)
 }
 
 /**
- * printChar - Sub-function to print characters
+ * printChar - prints a character to standard output
  * @item : Item or character to print
  * Return: 1 else then 0
  */
