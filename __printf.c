@@ -128,7 +128,7 @@ static int printString(char *str)
 	return (noOfCharPrinted);
 }
 /**
- * printIntValue - function that handles ptinting int
+ * printIntValue - prints integer
  * @value: The integer to be printed
  * @base: the base value to convert to
  * Return: Return the number of digits printed
