@@ -174,13 +174,15 @@ static int printIntValue(int value)
 int printBinary(unsigned int num)
 {
 	int count = 0;
+	char c;
 
 	if (num == 0)
 	{
 		return (1);
 	}
 	count = printBinary(num / 2);
-	printChar('0' + num % 2);
+	c = '0' + (num % 2);
+	write(1, &c, 1);
 
 	return (count);
 }
