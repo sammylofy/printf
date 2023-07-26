@@ -103,7 +103,7 @@ static int printChar(char item)
 
 
 /**
- * printString - Sub-function to print string
+ * printString - prints given character
  * @str : String to be printed
  * Return: The number of char printed
  */
