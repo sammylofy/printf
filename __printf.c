@@ -129,9 +129,9 @@ static int printString(char *str)
 }
 /**
  * printIntValue - prints integer
- * @value: The integer to be printed
+ * @value:the integer to be printed
  * @base: the base value to convert to
- * Return: Return the number of digits printed
+ * Return: number of digits printed
  */
 static int printIntValue(int value, int base)
 {
