@@ -130,11 +130,13 @@ static int printString(char *str)
 /**
  * printIntValue - function that handles ptinting int
  * @value: The integer to be printed
+ * @base: the base value to convert to
  * Return: Return the number of digits printed
  */
 static int printIntValue(int value, int base)
 {
-	int count = 0, i = 0, temp = 0, digits = 0, pow = 0;
+	int temp = 0;
+	unsigned int digits = 0, pow = 0, count = 0, i = 0;
 
 	if (value < 0)
 	{
