@@ -92,7 +92,7 @@ int _printf(const char *format, ...)
 
 /**
  * printChar - prints a character to standard output
- * @item : Item or character to print
+ * @item : characters to be printed
  * Return: 1 else then 0
  */
 
