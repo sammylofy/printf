@@ -169,7 +169,7 @@ static int printIntValue(int value, int base)
 }
 /**
  * printBinary - function that takes care of binary conversion
- * @num: The integer to be printed
+ * @num: integer to be printed
  * Return: Return the number of digits printed
  */
 
