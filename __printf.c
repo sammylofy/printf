@@ -2,7 +2,7 @@
 
 static int printChar(char item);
 static int printString(char *str);
-static int printIntValue(int value);
+static int printIntValue(int value, int base);
 int printBinary(unsigned int num);
 
 /**
@@ -57,14 +57,14 @@ int _printf(const char *format, ...)
 				{
 					int num = va_arg(args, int);
 
-					noPrintedChar += printIntValue(num);
+					noPrintedChar += printIntValue(num, 10);
 					break;
 				}
 				case 'b':
 				{
 					unsigned int val = va_arg(args, unsigned int);
 
-					noPrintedChar += printBinary(val);
+					noPrintedChar += printIntValue(val, 2);
 					break;
 				}
 				case '%':
@@ -132,7 +132,7 @@ static int printString(char *str)
  * @value: The integer to be printed
  * Return: Return the number of digits printed
  */
-static int printIntValue(int value)
+static int printIntValue(int value, int base)
 {
 	int count = 0, i = 0, temp = 0, digits = 0, pow = 0;
 
@@ -147,7 +147,7 @@ static int printIntValue(int value)
 	temp = value;
 	do {
 		digits++;
-		temp = temp / 10;
+		temp = temp / base;
 	} while (temp != 0);
 
 	while (digits > 0)
@@ -156,7 +156,7 @@ static int printIntValue(int value)
 
 		pow = 1;
 		for (i = 1; i < digits; i++)
-			pow *= 10;
+			pow *= base;
 		count++;
 		c = '0' + (int)(value / pow);
 		write(1, &c, 1);
