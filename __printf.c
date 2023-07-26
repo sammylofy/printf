@@ -168,7 +168,7 @@ static int printIntValue(int value, int base)
 	return (count);
 }
 /**
- * printBinary - function that handles binary conversion
+ * printBinary - function that takes care of binary conversion
  * @num: The integer to be printed
  * Return: Return the number of digits printed
  */
