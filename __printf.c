@@ -145,8 +145,7 @@ static int printIntValue(int value)
 		count++;
 	}
 	temp = value;
-	do
-	{
+	do {
 		digits++;
 		temp = temp / 10;
 	} while (temp != 0);
@@ -163,7 +162,6 @@ static int printIntValue(int value)
 		write(1, &c, 1);
 		value = value - (value / pow) * pow;
 		digits--;
-	
 	}
 	return (count);
 }
