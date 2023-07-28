@@ -31,58 +31,60 @@ int _printf(const char *format, ...)
 
 		if (s == '%')
 		{
-			++i;
+			i++;
 
 			s = format[i];
-
-			switch (s)
+			if (s == '%')
 			{
-				case 'c':
-				{
-					char ch = va_arg(args, int);
+				noPrintedChar += printChar('%');
+			}
+			else
+			{
 
-					noPrintedChar += printChar(ch);
-					break;
-				}
-				case 's':
+				switch (s)
 				{
-					char *str = va_arg(args, char*);
+					case 'c':
+						{
+							char ch = va_arg(args, int);
 
-					noPrintedChar += printString(str);
-					break;
-				}
-				case 'd':
-				case 'i':
+							noPrintedChar += printChar(ch);
+							break;
+						}
+					case 's':
+						{
+							char *str = va_arg(args, char*);
 
-				{
-					int num = va_arg(args, int);
+							noPrintedChar += printString(str);
+							break;
+						}
+					case 'd':
+					case 'i':
 
-					noPrintedChar += printIntValue(num, 10);
-					break;
-				}
-				case 'b':
-				{
-					unsigned int val = va_arg(args, unsigned int);
+						{
+							int num = va_arg(args, int);
 
-					noPrintedChar += printIntValue(val, 2);
-					break;
-				}
-				case '%':
-				{
-					noPrintedChar += printChar('%');
-					break;
-				}
-				default:
-				{
-					noPrintedChar += printChar('%');
-					noPrintedChar += printChar(format[i]);
-					break;
+							noPrintedChar += printIntValue(num, 10);
+							break;
+						}
+					case 'b':
+						{
+							unsigned int val = va_arg(args, unsigned int);
+
+							noPrintedChar += printIntValue(val, 2);
+							break;
+						}
+					default:
+						{
+							noPrintedChar += printChar('%');
+							noPrintedChar += printChar(s);
+							break;
+						}
 				}
 			}
 		}
 		else
 		{
-			noPrintedChar += printChar(format[i]);
+			noPrintedChar += printChar(s);
 		}
 		i++;
 	}
