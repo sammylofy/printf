@@ -74,7 +74,7 @@ int _printf(const char *format, ...)
 				}
 				default:
 				{
-					/*noPrintedChar += printChar('%');*/
+					noPrintedChar += printChar('%');
 					noPrintedChar += printChar(format[i]);
 					break;
 				}
