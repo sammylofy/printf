@@ -6,10 +6,10 @@ static int printIntValue(int value, int base);
 int printBinary(unsigned int num);
 
 /**
- * _printf - A custom implementation of printf
- * @format: Input string
+ * _printf - print input to standard output
+ * @format: character string to be printed
  *
- * Return: Number of characters to be printed
+ * Return: int
  */
 int _printf(const char *format, ...)
 {
@@ -91,8 +91,8 @@ int _printf(const char *format, ...)
 }
 
 /**
- * printChar - Sub-function to print characters
- * @item : Item or character to print
+ * printChar - prints a character to standard output
+ * @item : characters to be printed
  * Return: 1 else then 0
  */
 
@@ -103,7 +103,7 @@ static int printChar(char item)
 
 
 /**
- * printString - Sub-function to print string
+ * printString - prints given character
  * @str : String to be printed
  * Return: The number of char printed
  */
@@ -128,10 +128,10 @@ static int printString(char *str)
 	return (noOfCharPrinted);
 }
 /**
- * printIntValue - function that handles ptinting int
- * @value: The integer to be printed
+ * printIntValue - prints integer
+ * @value:the integer to be printed
  * @base: the base value to convert to
- * Return: Return the number of digits printed
+ * Return: number of digits printed
  */
 static int printIntValue(int value, int base)
 {
@@ -168,9 +168,9 @@ static int printIntValue(int value, int base)
 	return (count);
 }
 /**
- * printBinary - function that handles binary conversion
- * @num: The integer to be printed
- * Return: Return the number of digits printed
+ * printBinary - function that takes care of binary conversion
+ * @num: integer to be printed
+ * Return: number of digits printed
  */
 
 int printBinary(unsigned int num)
